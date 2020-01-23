@@ -11,7 +11,7 @@ function Chart(props) {
       yPadding: 10,
       callbacks: {
         label: (tooltipItem, data) => {
-          return [`Time : ${ new Date(data.labels[tooltipItem.index].x* 1000).toGMTString()}` , `Amount : ${data.labels[tooltipItem.index].y}`,`Block Height : ${data.labels[tooltipItem.index].blockheight}`]
+          return [`Time : ${new Date(data.labels[tooltipItem.index].x * 1000).toGMTString()}`, `Amount : ${data.labels[tooltipItem.index].y}`, `Block Height : ${data.labels[tooltipItem.index].blockheight}`]
         }
       }
     },
@@ -20,7 +20,7 @@ function Chart(props) {
       intersect: true
     },
     maintainAspectRatio: true,
-    responsive:true,
+    responsive: true,
     scales: {
       xAxes: [{
         type: 'linear',
@@ -30,9 +30,10 @@ function Chart(props) {
   }
   return (
     <div>
-      <Scatter 
+      { <Scatter
         data={props.chartData}
         options={options} />
+      }
     </div>
   )
 }

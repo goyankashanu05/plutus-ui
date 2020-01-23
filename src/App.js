@@ -30,13 +30,13 @@ class App extends React.Component {
     super();
     this.state = {
       address: '',
-      apiPath: process.env.API_PATH || 'http://localhost:80/get-data/',
+      apiPath: process.env.API_PATH || 'http://47.89.27.192/api/v1/address/',
       apiData: {
         txs: []
       },
       loading: false,
       chartData: [],
-      dateFilterValue: ''
+      dateFilterValue: ALL_DATA
     }
   }
 
@@ -87,13 +87,13 @@ class App extends React.Component {
   getApiData = async (page, pageSize) => {
 
     const { address, apiPath, apiData } = this.state
-    await axios.get(`${apiPath}${address}/${page}/${pageSize}`)
+    await axios.get(`${apiPath}${address}?page=${page}?pageSize=${pageSize}`)
       .then(response => {
         let data = response.data;
-        data.txs = [...apiData.txs, ...data.txs];
-        this.setState({
-          apiData: data
-        })
+          data.txs = [...apiData.txs, ...data.txs];
+          this.setState({
+            apiData: data
+          })
       })
   }
 
@@ -137,26 +137,43 @@ class App extends React.Component {
           </Navbar.Brand>
 
         </Navbar>
-        <Row className={styles.searchRow}>
-          <Col sm={2}> </Col>
-          <Col sm={4}> <EnterAddress
-            handleAddressEvent={this.handleAddressChange}
-            handleSearch={this.handleSearch} /></Col>
-          <Col sm={4}> <SearchFilter
-            dateFilterValue={this.state.dateFilterValue}
-            filerByTime={this.filerByTime}
-          /></Col>
-        </Row>
-        <Container className={styles.appChart}>
-          <FadeLoader
-            css={override}
-            size={30}
-            margin={4}
-            color="gray"
-            loading={this.state.loading}
-          />
-          <Chart chartData={this.state.chartData} />
-        </Container>
+        {/* <Row >
+          <Col sm={8}> */}
+            <Row className={styles.searchRow}>
+              <Col sm={2}> </Col>
+              <Col sm={4}> <EnterAddress
+                handleAddressEvent={this.handleAddressChange}
+                handleSearch={this.handleSearch} /></Col>
+              <Col sm={4}> <SearchFilter
+                dateFilterValue={this.state.dateFilterValue}
+                filerByTime={this.filerByTime}
+              /></Col>
+            </Row>
+            <Container className={styles.appChart}>
+              <FadeLoader
+                css={override}
+                size={30}
+                margin={4}
+                color="gray"
+                loading={this.state.loading}
+              />
+              <Chart chartData={this.state.chartData} />
+            </Container>
+          {/* </Col>
+          <Col sm={4}><div className={styles.appForm}>
+            <iframe
+              height="261"
+              title="Embedded Wufoo Form"
+              allowtransparency="true"
+              frameBorder="0"
+              scrolling="no"
+              style={{ width: "100%", border: "none" }}
+              src="https://leoncons.wufoo.com/embed/z1lvs4tm0c4wqwq/">
+              <a href="https://leoncons.wufoo.com/forms/z1lvs4tm0c4wqwq/">Fill out my Wufoo form!</a>
+            </iframe>
+          </div></Col>
+        </Row> */}
+
       </div>
     );
   }

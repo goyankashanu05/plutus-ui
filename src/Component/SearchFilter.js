@@ -10,7 +10,7 @@ function SearchFilter(props) {
                 <div className={styles.listingfield}>
                     <div className={styles.appSelectfield} >
                         <select value={props.dateFilterValue} onChange={(event) => props.filerByTime(event)}>
-                            <option value={ALL_DATA} selected>All Data</option>
+                            <option value={ALL_DATA} >All Data</option>
                             <option value={FILTER_TODAY}>Today</option>
                             <option value={FILTER_THIS_WEEK}>This Week</option>
                             <option value={FILTER_THIS_MONTH}>This Month</option>
