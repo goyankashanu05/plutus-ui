@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/plutus-ui/precache-manifest.ec896c6016490c513f0e08e1df5697e1.js"
+  "/plutus-ui/precache-manifest.9cb194060fab63169c245509a3541862.js"
 );
 
 self.addEventListener('message', (event) => {

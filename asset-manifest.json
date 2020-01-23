@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/plutus-ui/static/css/main.eda6da69.chunk.css",
-    "main.js": "/plutus-ui/static/js/main.aba6ab37.chunk.js",
-    "main.js.map": "/plutus-ui/static/js/main.aba6ab37.chunk.js.map",
+    "main.js": "/plutus-ui/static/js/main.df806cf4.chunk.js",
+    "main.js.map": "/plutus-ui/static/js/main.df806cf4.chunk.js.map",
     "runtime-main.js": "/plutus-ui/static/js/runtime-main.74efaeb6.js",
     "runtime-main.js.map": "/plutus-ui/static/js/runtime-main.74efaeb6.js.map",
     "static/css/2.25d2dfdd.chunk.css": "/plutus-ui/static/css/2.25d2dfdd.chunk.css",
     "static/js/2.4e2c9785.chunk.js": "/plutus-ui/static/js/2.4e2c9785.chunk.js",
     "static/js/2.4e2c9785.chunk.js.map": "/plutus-ui/static/js/2.4e2c9785.chunk.js.map",
     "index.html": "/plutus-ui/index.html",
-    "precache-manifest.ec896c6016490c513f0e08e1df5697e1.js": "/plutus-ui/precache-manifest.ec896c6016490c513f0e08e1df5697e1.js",
+    "precache-manifest.9cb194060fab63169c245509a3541862.js": "/plutus-ui/precache-manifest.9cb194060fab63169c245509a3541862.js",
     "service-worker.js": "/plutus-ui/service-worker.js",
     "static/css/2.25d2dfdd.chunk.css.map": "/plutus-ui/static/css/2.25d2dfdd.chunk.css.map",
     "static/css/main.eda6da69.chunk.css.map": "/plutus-ui/static/css/main.eda6da69.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.25d2dfdd.chunk.css",
     "static/js/2.4e2c9785.chunk.js",
     "static/css/main.eda6da69.chunk.css",
-    "static/js/main.aba6ab37.chunk.js"
+    "static/js/main.df806cf4.chunk.js"
   ]
 }
