@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "31aa5c5ba7096ee46652edb8563a740c",
+    "revision": "0193b112c7d7a60fafd5b0cfd91c1e12",
     "url": "/plutus-ui/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/plutus-ui/static/css/2.25d2dfdd.chunk.css"
   },
   {
-    "revision": "e8063501f443fd225e2c",
+    "revision": "94de050efc699be446e3",
     "url": "/plutus-ui/static/css/main.eda6da69.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/plutus-ui/static/js/2.4e2c9785.chunk.js.LICENSE"
   },
   {
-    "revision": "e8063501f443fd225e2c",
-    "url": "/plutus-ui/static/js/main.6c09f9a7.chunk.js"
+    "revision": "94de050efc699be446e3",
+    "url": "/plutus-ui/static/js/main.aba6ab37.chunk.js"
   },
   {
     "revision": "2014f9f762b94dd13def",
