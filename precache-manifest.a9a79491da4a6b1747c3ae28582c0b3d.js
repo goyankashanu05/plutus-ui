@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "54c0b1246d9af550930f375162a0c16e",
+    "revision": "00d561c33dbba41f5e35a48968497058",
     "url": "/plutus-ui/index.html"
   },
   {
