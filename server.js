@@ -1,13 +1,8 @@
 const express = require('express');
 const path = require('path');
-const request = require('request');
 const port = process.env.PORT || 3000;
 const app = express();
 // serving static assets
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
 app.use(express.static(__dirname + '/build'));
 // handle every other route with index.html, which will contain
 // a script tag to your application's JavaScript file(s).

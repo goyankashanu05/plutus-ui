@@ -1,5 +1,4 @@
 {
-  "homepage": "http://goyankashanu05.github.io/plutus-ui",
   "name": "graph-designing",
   "version": "0.1.0",
   "private": true,
@@ -17,12 +16,9 @@
     "react-chartjs-2": "^2.8.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.0",
-    "react-spinners": "^0.8.0",
-    "request": "^2.88.0"
+    "react-spinners": "^0.8.0"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -43,8 +39,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "gh-pages": "^2.2.0"
   }
 }
