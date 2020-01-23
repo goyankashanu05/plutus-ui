@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/plutus-ui/static/css/main.f432bf18.chunk.css",
-    "main.js": "/plutus-ui/static/js/main.0118dc81.chunk.js",
-    "main.js.map": "/plutus-ui/static/js/main.0118dc81.chunk.js.map",
+    "main.css": "/plutus-ui/static/css/main.eda6da69.chunk.css",
+    "main.js": "/plutus-ui/static/js/main.aba6ab37.chunk.js",
+    "main.js.map": "/plutus-ui/static/js/main.aba6ab37.chunk.js.map",
     "runtime-main.js": "/plutus-ui/static/js/runtime-main.74efaeb6.js",
     "runtime-main.js.map": "/plutus-ui/static/js/runtime-main.74efaeb6.js.map",
     "static/css/2.25d2dfdd.chunk.css": "/plutus-ui/static/css/2.25d2dfdd.chunk.css",
-    "static/js/2.0e899e4d.chunk.js": "/plutus-ui/static/js/2.0e899e4d.chunk.js",
-    "static/js/2.0e899e4d.chunk.js.map": "/plutus-ui/static/js/2.0e899e4d.chunk.js.map",
+    "static/js/2.4e2c9785.chunk.js": "/plutus-ui/static/js/2.4e2c9785.chunk.js",
+    "static/js/2.4e2c9785.chunk.js.map": "/plutus-ui/static/js/2.4e2c9785.chunk.js.map",
     "index.html": "/plutus-ui/index.html",
-    "precache-manifest.bfffae7b21636bb937ed204d6f665317.js": "/plutus-ui/precache-manifest.bfffae7b21636bb937ed204d6f665317.js",
+    "precache-manifest.ec896c6016490c513f0e08e1df5697e1.js": "/plutus-ui/precache-manifest.ec896c6016490c513f0e08e1df5697e1.js",
     "service-worker.js": "/plutus-ui/service-worker.js",
     "static/css/2.25d2dfdd.chunk.css.map": "/plutus-ui/static/css/2.25d2dfdd.chunk.css.map",
-    "static/css/main.f432bf18.chunk.css.map": "/plutus-ui/static/css/main.f432bf18.chunk.css.map",
-    "static/js/2.0e899e4d.chunk.js.LICENSE": "/plutus-ui/static/js/2.0e899e4d.chunk.js.LICENSE"
+    "static/css/main.eda6da69.chunk.css.map": "/plutus-ui/static/css/main.eda6da69.chunk.css.map",
+    "static/js/2.4e2c9785.chunk.js.LICENSE": "/plutus-ui/static/js/2.4e2c9785.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.74efaeb6.js",
     "static/css/2.25d2dfdd.chunk.css",
-    "static/js/2.0e899e4d.chunk.js",
-    "static/css/main.f432bf18.chunk.css",
-    "static/js/main.0118dc81.chunk.js"
+    "static/js/2.4e2c9785.chunk.js",
+    "static/css/main.eda6da69.chunk.css",
+    "static/js/main.aba6ab37.chunk.js"
   ]
 }
