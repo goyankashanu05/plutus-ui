@@ -3,8 +3,8 @@ version: "3.1"
 services:
   plutus-ui:
     build: .
-    # environment: 
-    #  - "PUBLIC_URL=http://47.89.27.192/api/v1/address/"
+    environment: 
+     - "API_PATH=http://47.89.27.192/api/v1/address/"
     command: ["npm", "run", "serve"]
     ports:
       - "0.0.0.0:80:3000"

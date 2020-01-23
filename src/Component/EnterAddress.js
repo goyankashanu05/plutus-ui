@@ -1,13 +1,17 @@
 import React from 'react'
+import { InputGroup } from 'react-bootstrap'
+import { FormControl } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
+import styles from '../App.module.css'
 
 function EnterAddress(props) {
     return (
         <div>
-            <input 
-            type="text" 
-            placeholder="Enter Address"
-            onChange={(e) => props.handleAddressEvent(e)}/>
-            <button onClick={() => props.handleSearch()}>SEARCH</button>
+            <InputGroup className={styles.appselectfield}>
+              <FormControl onChange={(e) => props.handleAddressEvent(e)}
+                placeholder="Search for anything" />
+                <Button className="btn btn-secondary" onClick={() => props.handleSearch()}>SEARCH</Button>
+            </InputGroup>
         </div>
     )
 }

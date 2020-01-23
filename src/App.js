@@ -1,20 +1,26 @@
 import React from 'react';
-import './App.css';
+import styles from './App.module.css';
+import logo from './plutus.png'
 import Chart from './Component/Chart'
 import EnterAddress from './Component/EnterAddress';
 import axios from 'axios'
 import { getDataArray } from './utils/prepareData';
-import { FILTER_TODAY, FILTER_THIS_WEEK, FILTER_THIS_MONTH, FILTER_3_MONTH_AGO, FILTER_6_MONTH_AGO, FILTER_THIS_YEAR, ALL_DATA } from './utils/constants';
 import { getStartEndDates } from './utils/filterDates';
 import { css } from "@emotion/core";
-// import { ClipLoader } from "react-spinners";
-import SyncLoader from "react-spinners/SyncLoader";
+import FadeLoader from "react-spinners/FadeLoader";
+import { Navbar, Container } from 'react-bootstrap';
+import SearchFilter from './Component/SearchFilter';
+import { ALL_DATA } from './utils/constants';
+import { Col } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 
 const override = css`
 display: block;
-margin: 24% 45% auto;
 border-color: red;
+top: 50% !important;
 position: absolute;
+left: 50%;
+transform: translate(0%, -15%);
 
 `;
 
@@ -24,7 +30,7 @@ class App extends React.Component {
     super();
     this.state = {
       address: '',
-      apiPath: process.env.PUBLIC_URL||'http://localhost:80/get-data/',
+      apiPath: process.env.API_PATH || 'http://localhost:80/get-data/',
       apiData: {
         txs: []
       },
@@ -43,14 +49,12 @@ class App extends React.Component {
   handleSearch = async () => {
     this.setState({ loading: true, apiData: { txs: [] } }, async () => {
       await this.getDetail()
-      console.log("===api===", this.state.apiData)
       this.updateGraph(this.filterChartData(this.state.apiData));
     })
   }
 
   updateGraph = (data) => {
     let dataArray = getDataArray(data, this.state.address)
-    console.log("===data===", dataArray)
     this.setState({
       loading: false,
       chartData: {
@@ -58,17 +62,14 @@ class App extends React.Component {
         datasets: [
           {
             showLine: true,
-            pointBorderColor: 'rgba(75,192,192,1)',
-            pointBackgroundColor: '#fff',
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-            pointHoverBorderColor: 'rgba(220,220,220,1)',
-            pointHoverBorderWidth: 2,
-            pointRadius: 1,
-            pointHitRadius: 10,
+            borderColor: "gray",
+            backgroundColor: "rgba(0, 0, 0, 0)",
+            pointBackgroundColor: "#55bae7",
+            pointBorderColor: "#55bae7",
+            pointHoverBackgroundColor: "#55bae7",
+            pointHoverBorderColor: "#55bae7",
             label: "Amount",
-            fill: false,
+            fill: true,
             data: dataArray
           }
         ]
@@ -86,9 +87,8 @@ class App extends React.Component {
   getApiData = async (page, pageSize) => {
 
     const { address, apiPath, apiData } = this.state
-    await axios.get(`${apiPath}${address}?page=${page}&pageSize=${pageSize}`)
+    await axios.get(`${apiPath}${address}/${page}/${pageSize}`)
       .then(response => {
-        console.log("======response====", response.data)
         let data = response.data;
         data.txs = [...apiData.txs, ...data.txs];
         this.setState({
@@ -121,7 +121,6 @@ class App extends React.Component {
     } else {
       this.setState({ dateFilterValue: event.target.value })
       const dateRange = getStartEndDates(event.target.value);
-      console.log('dateRange : ', dateRange)
       let data = this.filterChartDataByDates(this.state.apiData, dateRange)
       this.updateGraph(data);
 
@@ -131,26 +130,33 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <EnterAddress
-          handleAddressEvent={this.handleAddressChange}
-          handleSearch={this.handleSearch} />
-        <select value={this.state.dateFilterValue} onChange={(event) => this.filerByTime(event)}>
-          <option value={ALL_DATA} selected>All Data</option>
-          <option value={FILTER_TODAY}>Last 24 Hours</option>
-          <option value={FILTER_THIS_WEEK}>This Week</option>
-          <option value={FILTER_THIS_MONTH}>This Month</option>
-          <option value={FILTER_3_MONTH_AGO}>3 Months ago</option>
-          <option value={FILTER_6_MONTH_AGO}>6 Months ago</option>
-          <option value={FILTER_THIS_YEAR}>This year</option>
-        </select>
-        <SyncLoader
-          css={override}
-          size={30}
-          margin={4}
-          color="green"
-          loading={this.state.loading}
-        />
-        <Chart chartData={this.state.chartData} />
+        <Navbar className={styles.appNavBar} expand="lg">
+          <Navbar.Brand href="#home">
+            <img src={logo} className={styles.appNavBarImg} alt="logo"
+            />
+          </Navbar.Brand>
+
+        </Navbar>
+        <Row className={styles.searchRow}>
+          <Col sm={2}> </Col>
+          <Col sm={4}> <EnterAddress
+            handleAddressEvent={this.handleAddressChange}
+            handleSearch={this.handleSearch} /></Col>
+          <Col sm={4}> <SearchFilter
+            dateFilterValue={this.state.dateFilterValue}
+            filerByTime={this.filerByTime}
+          /></Col>
+        </Row>
+        <Container className={styles.appChart}>
+          <FadeLoader
+            css={override}
+            size={30}
+            margin={4}
+            color="gray"
+            loading={this.state.loading}
+          />
+          <Chart chartData={this.state.chartData} />
+        </Container>
       </div>
     );
   }

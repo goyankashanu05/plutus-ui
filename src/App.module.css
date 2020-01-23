@@ -1,0 +1,160 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.searchRow{
+  padding: 3% 5%;
+}
+.appNavBar {
+  background-color: #282c34;
+  display: flex;
+  height: 5%;
+  align-items: left;
+}
+
+.appNavBarImg{
+  margin-left:20% ;
+  height: 50px !important;
+}
+.App-link {
+  color: #61dafb;
+}
+
+.appChart{
+  height: 100% !important;
+  max-width: 880px !important;
+  margin-bottom: 50px !important;
+  position: relative;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+body .appHeadercontainer {
+  max-width: 1580px;
+}
+
+
+
+
+.App-link {
+  color: #09d3ac;
+}
+
+.appSearchField{
+  width: 30%;
+  margin-left: 35%;
+}
+.appselectfield {
+
+  background: rgba(224, 237, 246, 0.4);
+  border: 2px solid #E0EDF6;
+  border-radius: 3px;
+  /* width: 200px !important; */
+}
+
+
+.appselectfield input {
+
+  background: rgba(224, 237, 246, 0.4);
+  border: 2px solid #E0EDF6;
+  border-radius: 3px;
+}
+
+
+.appselectfield input::placeholder {
+  color: #727272;
+}
+
+
+.appselectfield button {
+  border: 0;
+  color: #2D2D2D;
+  position: relative;
+  padding: 0 33px 0 20px;
+}
+
+body nav {
+  padding: 10px 0 !important;
+  border: 0;
+}
+
+.listingfield {
+  position: relative;
+}
+
+.listingfield:before {
+  content: '';
+  position: absolute;
+  top: 13px;
+  right: 11px;
+  border-bottom: 2px solid #999;
+  border-left: 2px solid #999;
+  width: 8px;
+  height: 8px;
+  transform: rotate(-45deg);
+}
+
+.listingfield select {
+  background: #ffffff;
+  border: 2px solid #e0edf6;
+  height: 37px;
+  border-radius: 3px;
+  width: 100%;
+  padding: 0 10px;
+  -webkit-appearance: none;
+  
+}
+.appSearchFilter{
+  margin-left:35% ;
+  margin-top: 25px;
+  width: 30%;
+}
+
+.searchRow {
+  margin: 0 !important;
+}
+
+@media screen and (max-width: 767px) {
+  .appNavBar {
+    justify-content: center;
+  }
+  .listingfield {
+    margin-top: 15px;
+  }
+}

@@ -20,6 +20,7 @@ function Chart(props) {
       intersect: true
     },
     maintainAspectRatio: true,
+    responsive:true,
     scales: {
       xAxes: [{
         type: 'linear',
@@ -29,7 +30,7 @@ function Chart(props) {
   }
   return (
     <div>
-      <Scatter
+      <Scatter 
         data={props.chartData}
         options={options} />
     </div>
