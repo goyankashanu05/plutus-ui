@@ -1,0 +1,7 @@
+export const FILTER_TODAY = 'FILTER_TODAY';
+export const FILTER_THIS_YEAR = 'FILTER_THIS_YEAR';
+export const FILTER_6_MONTH_AGO = 'FILTER_6_MONTH_AGO';
+export const FILTER_3_MONTH_AGO = 'FILTER_3_MONTH_AGO';
+export const FILTER_THIS_MONTH = 'FILTER_THIS_MONTH';
+export const FILTER_THIS_WEEK = 'FILTER_THIS_WEEK';
+export const ALL_DATA = 'ALL_DATA';
