@@ -87,7 +87,7 @@ class App extends React.Component {
   getApiData = async (page, pageSize) => {
 
     const { address, apiPath, apiData } = this.state
-    await axios.get(`${apiPath}${address}?page=${page}?pageSize=${pageSize}`)
+    await axios.get(`${apiPath}${address}?page=${page}`)
       .then(response => {
         let data = response.data;
           data.txs = [...apiData.txs, ...data.txs];
