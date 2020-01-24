@@ -52,6 +52,13 @@ function Chart(props) {
           }
         },
         position: 'bottom'
+      }],
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          position: 'top',
+          labelString: 'PLT'
+        }
       }]
     }
   }

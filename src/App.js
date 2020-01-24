@@ -200,10 +200,10 @@ class App extends React.Component {
           />
           <Row>
             <Col sm={6}>
-              <Chart chartData={this.state.chartData} title={'All Transactions'} />
+              <Chart chartData={this.state.chartData} title={'Balance'} />
             </Col>
             <Col sm={6}>
-              <Chart chartData={this.state.stackChartData} title={'Stake Transactions'} />
+              <Chart chartData={this.state.stackChartData} title={'Rewards'} />
             </Col>
           </Row>
 
