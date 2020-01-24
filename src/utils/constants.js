@@ -5,3 +5,4 @@ export const FILTER_3_MONTH_AGO = 'FILTER_3_MONTH_AGO';
 export const FILTER_THIS_MONTH = 'FILTER_THIS_MONTH';
 export const FILTER_THIS_WEEK = 'FILTER_THIS_WEEK';
 export const ALL_DATA = 'ALL_DATA';
+export const COINSTAKE_TX ='CoinStake TX';
