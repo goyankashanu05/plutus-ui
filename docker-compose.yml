@@ -4,7 +4,7 @@ services:
   plutus-ui:
     build: .
     environment: 
-     - "API_PATH=http://47.89.27.192/api/v1/address/"
+     - "API_PATH=http://47.56.69.103/api/v1/address/"
     command: ["npm", "run", "serve"]
     ports:
       - "0.0.0.0:80:3000"
