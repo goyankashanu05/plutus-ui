@@ -1,3 +1,5 @@
+import { COINSTAKE_TX } from "./constants";
+
 export const getDataArray = (filterChartData, address) => {
   var amountArray = [];
 
@@ -7,7 +9,7 @@ export const getDataArray = (filterChartData, address) => {
   let sum = 0;
   filterChartData.forEach(function (data) {
     sum += calculateValue(data, address)
-    amountArray.push({ x: data.time, y: sum, blockheight: data.blockheight })
+    amountArray.push({ x: new Date(data.time*1000), y: sum, blockheight: data.blockheight })
   })
   return amountArray;
 }
@@ -39,4 +41,14 @@ export const calculateSumVout = (vout, address) => {
 
 export const calculateValue = (transaction, address) => {
   return (calculateSumVout(transaction.vout, address) - calculateSumVin(transaction.vin, address));
+}
+
+export const filterStackData = (data) => {
+  let stackData = [];
+  data.forEach(transaction => {
+    if (transaction.vout[0].scriptPubKey.addresses[0] === COINSTAKE_TX) {
+      stackData.push(transaction);
+    }
+  });
+  return stackData;
 }

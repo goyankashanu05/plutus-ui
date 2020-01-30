@@ -4,7 +4,7 @@ import logo from './plutus.png'
 import Chart from './Component/Chart'
 import EnterAddress from './Component/EnterAddress';
 import axios from 'axios'
-import { getDataArray } from './utils/prepareData';
+import { getDataArray, filterStackData } from './utils/prepareData';
 import { getStartEndDates } from './utils/filterDates';
 import { css } from "@emotion/core";
 import FadeLoader from "react-spinners/FadeLoader";
@@ -36,7 +36,9 @@ class App extends React.Component {
       },
       loading: false,
       chartData: [],
-      dateFilterValue: ALL_DATA
+      stackChartData: [],
+      dateFilterValue: ALL_DATA,
+      error: ''
     }
   }
 
@@ -47,10 +49,18 @@ class App extends React.Component {
   }
 
   handleSearch = async () => {
-    this.setState({ loading: true, apiData: { txs: [] } }, async () => {
-      await this.getDetail()
-      this.updateGraph(this.filterChartData(this.state.apiData));
-    })
+    if (this.state.address && this.state.address.length === 34) {
+      this.setState({ loading: true, error: '', apiData: { txs: [] } }, async () => {
+        await this.getDetail()
+        this.updateGraph(this.filterChartData(this.state.apiData));
+        this.updateStackGraph(this.filterChartData(this.state.apiData));
+      })
+    } else {
+      this.setState({
+        error: 'Enter valid Address'
+      })
+    }
+
   }
 
   updateGraph = (data) => {
@@ -58,6 +68,34 @@ class App extends React.Component {
     this.setState({
       loading: false,
       chartData: {
+        labels: dataArray,
+        datasets: [
+          {
+            showLine: true,
+            borderColor: "gray",
+            backgroundColor: "rgba(0, 0, 0, 0)",
+            pointBackgroundColor: "#55bae7",
+            pointBorderColor: "#55bae7",
+            pointHoverBackgroundColor: "#55bae7",
+            pointHoverBorderColor: "#55bae7",
+            label: "Amount",
+            fill: true,
+            data: dataArray
+          }
+        ]
+      }
+    })
+  }
+
+  updateStackGraph = (data) => {
+    const stackData = filterStackData(data);
+    console.log('stackData : ', stackData);
+
+    let dataArray = getDataArray(stackData, this.state.address)
+    console.log('dataArray : ', dataArray);
+    this.setState({
+      loading: false,
+      stackChartData: {
         labels: dataArray,
         datasets: [
           {
@@ -90,10 +128,10 @@ class App extends React.Component {
     await axios.get(`${apiPath}${address}?page=${page}`)
       .then(response => {
         let data = response.data;
-          data.txs = [...apiData.txs, ...data.txs];
-          this.setState({
-            apiData: data
-          })
+        data.txs = [...apiData.txs, ...data.txs];
+        this.setState({
+          apiData: data
+        })
       })
   }
 
@@ -118,11 +156,13 @@ class App extends React.Component {
     if (event.target.value === ALL_DATA) {
       let data = this.filterChartData(this.state.apiData)
       this.updateGraph(data);
+      this.updateStackGraph(data);
     } else {
       this.setState({ dateFilterValue: event.target.value })
       const dateRange = getStartEndDates(event.target.value);
       let data = this.filterChartDataByDates(this.state.apiData, dateRange)
       this.updateGraph(data);
+      this.updateStackGraph(data);
 
     }
   }
@@ -139,27 +179,37 @@ class App extends React.Component {
         </Navbar>
         {/* <Row >
           <Col sm={8}> */}
-            <Row className={styles.searchRow}>
-              <Col sm={2}> </Col>
-              <Col sm={4}> <EnterAddress
-                handleAddressEvent={this.handleAddressChange}
-                handleSearch={this.handleSearch} /></Col>
-              <Col sm={4}> <SearchFilter
-                dateFilterValue={this.state.dateFilterValue}
-                filerByTime={this.filerByTime}
-              /></Col>
-            </Row>
-            <Container className={styles.appChart}>
-              <FadeLoader
-                css={override}
-                size={30}
-                margin={4}
-                color="gray"
-                loading={this.state.loading}
-              />
-              <Chart chartData={this.state.chartData} />
-            </Container>
-          {/* </Col>
+        <Row className={styles.searchRow}>
+          <Col sm={2}> </Col>
+          <Col sm={4}> <EnterAddress
+            error={this.state.error}
+            handleAddressEvent={this.handleAddressChange}
+            handleSearch={this.handleSearch} /></Col>
+          <Col sm={4}> <SearchFilter
+            dateFilterValue={this.state.dateFilterValue}
+            filerByTime={this.filerByTime}
+          /></Col>
+        </Row>
+        <div className={styles.appChart}>
+          <FadeLoader
+            css={override}
+            size={30}
+            margin={4}
+            color="gray"
+            loading={this.state.loading}
+          />
+          <Row>
+            <Col sm={6}>
+              <Chart chartData={this.state.chartData} title={'Balance'} />
+            </Col>
+            <Col sm={6}>
+              <Chart chartData={this.state.stackChartData} title={'Rewards'} />
+            </Col>
+          </Row>
+
+
+        </div>
+        {/* </Col>
           <Col sm={4}><div className={styles.appForm}>
             <iframe
               height="261"
