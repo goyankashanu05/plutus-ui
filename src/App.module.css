@@ -22,7 +22,10 @@
   height: 5%;
   align-items: left;
 }
-
+.heading {
+  text-align: center;
+  padding-top: 50px;
+}
 .appNavBarImg{
   margin-left:20% ;
   height: 50px !important;

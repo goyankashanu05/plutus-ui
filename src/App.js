@@ -179,6 +179,7 @@ class App extends React.Component {
         </Navbar>
         {/* <Row >
           <Col sm={8}> */}
+        <h2 className={styles.heading}>Address Profile</h2>
         <Row className={styles.searchRow}>
           <Col sm={2}> </Col>
           <Col sm={4}> <EnterAddress

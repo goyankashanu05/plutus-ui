@@ -9,7 +9,7 @@ function EnterAddress(props) {
         <div>
             <InputGroup className={styles.appselectfield}>
               <FormControl onChange={(e) => props.handleAddressEvent(e)}
-                placeholder="Search for anything"/>
+                placeholder="Plutus Address"/>
                 <Button className="btn btn-secondary" onClick={() => props.handleSearch()}>SEARCH</Button>
             </InputGroup>
             <span className="text-danger">{props.error}</span>
