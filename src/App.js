@@ -30,7 +30,7 @@ class App extends React.Component {
     super();
     this.state = {
       address: '',
-      apiPath: process.env.API_PATH || 'http://47.56.69.103/api/v1/address/',
+      apiPath: process.env.API_PATH || 'https://explorer.plutuscap.com/api/v1/address/',
       apiData: {
         txs: []
       },
